@@ -20,3 +20,12 @@ func Auth(w http.ResponseWriter, r *http.Request) bool {
 
     return true
 }
+
+func AllowOnlyGET(w http.ResponseWriter, r *http.Request) bool {
+    if r.Method != "GET" {
+        w.Write([]byte("Only GET is allowed"))
+        return false
+    }
+
+    return true
+}
